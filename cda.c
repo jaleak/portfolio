@@ -2,7 +2,6 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-//test
 
 typedef struct cda{
 void **data;
