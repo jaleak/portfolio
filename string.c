@@ -4,7 +4,6 @@
 #include <assert.h>
 #include <string.h>
 #include "string.h"
-//test
 
 struct STRING
     {

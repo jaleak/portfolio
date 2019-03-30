@@ -32,13 +32,107 @@ FOOD * newFOOD(char *newName,char *newComp,float newCal,float newCarbs,float new
 	p->grams = newGrams;
 	p->amountPer = newAmountPer;
 	p->unit = newUnit;
+	return p;
 }
 char *getFOODNAME(FOOD *v){
 	return v->name;	
 }
-char *setFOOD(FOOD *v,char *x);
-void displayFOOD(void *v,FILE *fp);
-int compareFOOD(void *v,void *w);
-void freeFOOD(void *v):
+char *getFOODCOMPANY(FOOD *v){
+	return v->company;
+}
+float getFOODCALORIES(FOOD *v){
+	return v->calories;
+}
+float getFOODCARBS(FOOD *v){
+	return v->carbs;
+}
+float getFOODFAT(FOOD *v){
+	return v->fat;
+}
+float getFOODPROTEIN(FOOD *v){
+	return v->protein;
+}
+float getFOODAMOUNTINGRAMS(FOOD *v){
+	return v->amountInGrams;
+}
+char *getFOODGRAMS(FOOD *v){
+	return v->grams;
+}
+float getFOODAMOUNTPER(FOOD *v){
+	return v->amountPer;
+}
+char *getFOODUNIT(FOOD *v){
+	return v->unit;
+}
+//changes name and returns old
+char *setFOODNAME(FOOD *v,char *x){
+	char *old = v->name;	
+	v->name = x;
+	return old;
+}
+char *setFOODCOMPANY(FOOD *v,char *x){
+	char *old = v->company;
+	v->company = x;
+	return old;
+}
+float setFOODCALORIES(FOOD *v,float x){
+	float old = v->calories;
+	v->calories = x;
+	return old;
+}
+float setFOODCARBS(FOOD *v,float x){
+	float old = v->carbs;
+	v->carbs = x;
+	return old;
+}
+float setFOODFAT(FOOD *v,float x){
+	float old = v->fat;
+	v->fat = x;
+	return old;
+}
+float setFOODPROTEIN(FOOD *v,float x){
+	float old = v->protein;
+	v->protein = x;
+	return old;
+}
+float setFOODAMOUNTINGRAMS(FOOD *v,float x){
+	float old = v->amountInGrams;
+	v->amountInGrams = x;
+	return old;
+}
+char *setFOODGRAMS(FOOD *v,char *x){
+	char *old = v->grams;
+	v->grams = x;
+	return old;
+}
+float setFOODAMOUNTPER(FOOD *v,float x){
+	float old = v->amountPer;
+	v->amountPer = x;
+	return old;
+}
+char *setFOODUNIT(FOOD *v,char *x){
+	char *old = v->unit;
+	v->unit = x;
+	return old;
+}
 
-#endif
+void displayFOOD(void *v,FILE *fp){
+	fprintf(fp,"%s\n",getFOODNAME((FOOD *) v));
+	fprintf(fp,"%s\n",getFOODCOMPANY((FOOD *) v));
+	fprintf(fp,"Value per 100 g:\n");
+	fprintf(fp,"%.2f Calories\n",getFOODCALORIES((FOOD *) v));	
+	fprintf(fp,"%.2f Carbohydrates\n",getFOODCARBS((FOOD *) v));
+	fprintf(fp,"%.2f Total lipid (fat)\n",getFOODFAT((FOOD *) v));
+	fprintf(fp,"%.2f Protein\n",getFOODPROTEIN((FOOD *) v));
+	fprintf(fp,"There are ");
+	fprintf(fp,"%.2f ",getFOODAMOUNTINGRAMS((FOOD *) v));
+	fprintf(fp,"%s ",getFOODGRAMS((FOOD *) v));
+	fprintf(fp,"per %.1f ",getFOODAMOUNTPER((FOOD *) v));
+	fprintf(fp,"%s\n",getFOODUNIT((FOOD *) v));
+}
+int compareFOOD(void *v,void *w){
+	return strcmp(getFOODNAME(v),getFOODNAME(w));
+}
+void freeFOOD(void *v){
+	free((FOOD *) v);
+}

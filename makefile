@@ -8,14 +8,14 @@ test : test-tnode test-bst test-gst test-rbt test-main
 	./test-bst
 	./test-gst
 	./test-rbt
-	./trees -r t-0-1.corpus t-0-1.commands
+	./trees -r t-0-0.corpus t-0-0.commands
 
 valgrind : test-tnode test-bst test-gst test-rbt test-main
 	valgrind test-tnode
 	valgrind test-bst
 	valgrind test-gst
 	valgrind test-rbt
-	valgrind trees -r t-0-8.corpus t-0-8.commands
+	valgrind trees -r t-0-0.corpus t-0-0.commands
 
 clean : 
 	rm -f $(OBJS) test-bst test-rbt test-gst test-tnode trees
@@ -33,4 +33,4 @@ test-tnode : $(OBJS)
 	gcc $(LOPTS) integer.c queue.c cda.c tnode.c bst.c tnode-0-0.c -o test-tnode -lm
 
 test-main: $(OBJS)
-	gcc $(LOPTS) string.c scanner.c cda.c queue.c bst.c tnode.c gst.c rbt.c main.c -o trees -lm
+	gcc $(LOPTS) string.c scanner.c cda.c queue.c bst.c tnode.c gst.c rbt.c food.c main.c -o trees -lm
