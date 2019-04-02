@@ -42,9 +42,9 @@ void *getValueRBT(RBTVALUE *val){
 static void valueDisplayRBT(void *value, FILE *fp){	
 	RBTVALUE *val = ((RBTVALUE*)value);
 	val->display(getValueRBT(val),fp);
-	if(getColorRBT(val) == 'R'){
-		fprintf(fp,"*");
-	}			
+//	if(getColorRBT(val) == 'R'){
+//		fprintf(fp,"*");
+//	}			
 }
 static int valueComparatorRBT(void *x,void *y){
 	RBTVALUE *valX = ((RBTVALUE *)x);

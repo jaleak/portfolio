@@ -181,29 +181,29 @@ void inorder(TNODE *t,FILE *fp){
 	if(t == NULL)
 		return;
 	if(getTNODEleft(t) != NULL){
-		fprintf(fp,"[");
+	//	fprintf(fp,"[");
 		inorder(getTNODEleft(t),fp);
-		fprintf(fp,"] ");
+	//	fprintf(fp,"] ");
 	}
 	displayTNODE(t,fp);
 	if(getTNODEright(t) != NULL){
-		fprintf(fp," [");
+	//	fprintf(fp," [");
 		inorder(getTNODEright(t),fp);
-		fprintf(fp,"]");
+	//	fprintf(fp,"]");
 	}		
 }
 void postorder(TNODE *t,FILE *fp){
 	if(t == NULL)
 		return;
 	if(getTNODEleft(t) != NULL){
-		fprintf(fp,"[");
+	//	fprintf(fp,"[");
 		postorder(getTNODEleft(t),fp);
-		fprintf(fp,"] ");
+	//	fprintf(fp,"] ");
 	}
 	if(getTNODEright(t) != NULL){
-		fprintf(fp,"[");
+	//	fprintf(fp,"[");
 		postorder(getTNODEright(t),fp);
-		fprintf(fp,"] ");
+	//	fprintf(fp,"] ");
 	}
 	displayTNODE(t,fp);
 }
@@ -212,14 +212,14 @@ void preorder(TNODE *t,FILE *fp){
 		return;
 	displayTNODE(t,fp);
 	if(getTNODEleft(t) != NULL){
-		fprintf(fp," [");
+	//	fprintf(fp," [");
 		preorder(getTNODEleft(t),fp);
-		fprintf(fp,"]");
+	//	fprintf(fp,"]");
 	}
 	if(getTNODEright(t) != NULL){
-		fprintf(fp," [");
+	//	fprintf(fp," [");
 		preorder(getTNODEright(t),fp);
-		fprintf(fp,"]");
+	//	fprintf(fp,"]");
 	}
 }
 void levelorder(TNODE *t, FILE *fp){
@@ -337,6 +337,10 @@ void displayBST(BST *t, FILE *fp){
 		fprintf(fp,"[");
 		postorder(t->root,fp);
 		fprintf(fp,"]");
+	}
+	if(t->debug == 4){
+		inorder(t->root,fp);
+		printf("\n");
 	}
 }
 int debugBST(BST *t, int level){

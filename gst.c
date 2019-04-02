@@ -31,9 +31,9 @@ int getFreq(GTVALUE *val){
 void valueDisplay(void *value, FILE *fp){
 	GTVALUE *val = ((GTVALUE *)value);
 	val->display(getValue(val),fp);
-	if(getFreq(val) > 1){
-		fprintf(fp,"<%d>",getFreq(val));
-	}
+//	if(getFreq(val) > 1){
+//		fprintf(fp,"<%d>",getFreq(val));
+//	}
 }
 static int valueComparator(void *x,void *y){
 	GTVALUE *valX = ((GTVALUE *)x);

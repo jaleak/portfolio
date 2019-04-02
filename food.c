@@ -129,9 +129,40 @@ void displayFOOD(void *v,FILE *fp){
 	fprintf(fp,"%s ",getFOODGRAMS((FOOD *) v));
 	fprintf(fp,"per %.1f ",getFOODAMOUNTPER((FOOD *) v));
 	fprintf(fp,"%s\n",getFOODUNIT((FOOD *) v));
+	fprintf(fp,"\n");
 }
 int compareFOOD(void *v,void *w){
-	return strcmp(getFOODNAME(v),getFOODNAME(w));
+	if(strcmp(getFOODNAME(v),getFOODNAME(w)) != 0){
+		return strcmp(getFOODNAME(v),getFOODNAME(w));
+	}
+	if(strcmp(getFOODCOMPANY(v),getFOODCOMPANY(w)) != 0){
+		return strcmp(getFOODNAME(v),getFOODNAME(w));
+	}
+	if((getFOODCALORIES(v) - getFOODCALORIES(w)) != 0){
+		return (getFOODCALORIES(v) - getFOODCALORIES(w));
+	}
+	if((getFOODCARBS(v) - getFOODCARBS(w)) != 0){
+		return (getFOODCARBS(v) - getFOODCARBS(w));
+	}
+	if((getFOODFAT(v) - getFOODFAT(w)) != 0){
+		return (getFOODFAT(v) - getFOODFAT(w));
+	}
+	if((getFOODPROTEIN(v) - getFOODPROTEIN(w)) != 0){
+		return (getFOODPROTEIN(v) - getFOODPROTEIN(w));
+	}
+	if((getFOODAMOUNTINGRAMS(v) - getFOODAMOUNTINGRAMS(w)) != 0){
+		return (getFOODAMOUNTINGRAMS(v) - getFOODAMOUNTINGRAMS(w));
+	}
+	if(strcmp(getFOODGRAMS(v),getFOODGRAMS(w))!=0){
+		return (strcmp(getFOODGRAMS(v),getFOODGRAMS(w)));
+	}
+	if((getFOODAMOUNTPER(v) - getFOODAMOUNTPER(w)) != 0){
+		return (getFOODAMOUNTPER(v) - getFOODAMOUNTPER(w));
+	}
+	if(strcmp(getFOODUNIT(v),getFOODUNIT(w))!=0){
+		return (strcmp(getFOODUNIT(v),getFOODUNIT(w)));
+	}
+	return 0;
 }
 void freeFOOD(void *v){
 	free((FOOD *) v);
